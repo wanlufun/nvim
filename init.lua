@@ -26,5 +26,5 @@ else
   return {}
 end
 
-require("wanlu.config.lazy")
+require("wanlu.config").init()
 

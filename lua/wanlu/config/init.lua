@@ -29,9 +29,11 @@ function M.init()
     end,
   })
 
-
   -- load lazy.nvim
   require("wanlu.config.lazy")
+
+  -- load colorscheme
+  vim.cmd.colorscheme("catppuccin-mocha")
 
 end
 
