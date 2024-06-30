@@ -25,6 +25,7 @@ function M.init()
       if lazy_autocmds then
         require("wanlu.config.autocmds")
       end
+      require("wanlu.config.keymaps")
     end,
   })
 
