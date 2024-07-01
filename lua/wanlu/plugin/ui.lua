@@ -136,6 +136,7 @@ return {
         mode = { "n", "v" },
         ["<leader>sn"] = { name = "+noice" },
         ["<leader>u"] = { name = "+ui" },
+        ["<leader>s"]= { name = "+search" },
       },
     },
   },

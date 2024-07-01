@@ -10,6 +10,7 @@ return {
       plugins = { spelling = true },
       defaults = {
         mode = { "n", "v" },
+        ["<leader><tab>"] = { name = "+tabs" },
         ["<leader>q"] = { name = "+quit/session" },
       },
     },
