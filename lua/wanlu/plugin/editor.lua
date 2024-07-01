@@ -104,5 +104,16 @@ return {
         },
       },
     },
-  }
+  },
+
+  {
+    "folke/which-key.nvim",
+    event = "VeryLazy",
+    opts = {
+      defaults = {
+        mode = { "n", "v" },
+        ["<leader>f"] = { name = "+file" },
+      },
+    },
+  },
 }
