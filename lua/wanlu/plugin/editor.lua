@@ -173,6 +173,7 @@ return {
         ["<leader>f"] = { name = "+file" },
         ["<leader>g"] = { name = "+git" },
         ["<leader>gh"] = { name = "+hunks", ["_"] = "which_key_ignore" },
+        ["<leader>b"] = { name = "+buffer" },
       },
     },
   },
