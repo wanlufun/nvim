@@ -35,6 +35,3 @@ require("lazy").setup({
   },
 })
 
--- Set global utils var
-_G.LuUtil = require("wanlu.util")
-
