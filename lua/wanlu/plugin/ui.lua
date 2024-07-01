@@ -64,7 +64,7 @@ return {
     },
     init = function()
       if not LuUtil.has("noice.nvim") then
-        LazyVim.on_very_lazy(function()
+        LuUtil.on_very_lazy(function()
           vim.notify = require("notify")
         end)
       end
