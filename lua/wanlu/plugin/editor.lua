@@ -4,12 +4,20 @@ return {
     cmd = "Neotree",
     keys = {
       {
+        "<leader>fe",
+        function()
+          require("neo-tree.command").execute({ toggle = true, dir = LuUtil.root() })
+        end,
+        desc = "Explorer NeoTree (Root Dir)",
+      },
+      {
         "<leader>fE",
         function()
           require("neo-tree.command").execute({ toggle = true, dir = vim.uv.cwd() })
         end,
         desc = "Explorer NeoTree (cwd)",
       },
+      { "<leader>e", "<leader>fe", desc = "Explorer NeoTree (Root Dir)", remap = true },
       { "<leader>E", "<leader>fE", desc = "Explorer NeoTree (cwd)", remap = true },
       {
         "<leader>ge",
@@ -28,6 +36,23 @@ return {
     },
     deactivate = function()
       vim.cmd([[Neotree close]])
+    end,
+    init = function()
+      vim.api.nvim_create_autocmd("BufEnter", {
+        group = vim.api.nvim_create_augroup("Neotree_start_directory", { clear = true }),
+        desc = "Start Neo-tree with directory",
+        once = true,
+        callback = function()
+          if package.loaded["neo-tree"] then
+            return
+          else
+            local stats = vim.uv.fs_stat(vim.fn.argv(0))
+            if stats and stats.type == "directory" then
+              require("neo-tree")
+            end
+          end
+        end,
+      })
     end,
     opts = {
       sources = { "filesystem", "buffers", "git_status" },
@@ -66,7 +91,7 @@ return {
       },
       default_component_configs = {
         indent = {
-          with_expanders = true, -- if nil and file nesting is enabled, will enable expanders
+          with_expanders = true,
           expander_collapsed = "",
           expander_expanded = "",
           expander_highlight = "NeoTreeExpander",
