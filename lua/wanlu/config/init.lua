@@ -1,3 +1,4 @@
+_G.LuUtil = require("wanlu.util")
 vim.uv = vim.uv or vim.loop
 
 local M = {}
@@ -29,12 +30,7 @@ function M.init()
     end,
   })
 
-  -- load lazy.nvim
-  require("wanlu.config.lazy")
-
-  -- load colorscheme
-  vim.cmd.colorscheme("catppuccin-mocha")
-
+  LuUtil.plugin.setup()
 end
 
 return M

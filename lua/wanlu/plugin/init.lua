@@ -1,7 +1,4 @@
--- Set global utils var
-_G.LuUtil = require("wanlu.util")
-
-LuUtil.plugin.setup()
+require("wanlu.config").init()
 
 return {
   { "folke/lazy.nvim", version = "*" },
