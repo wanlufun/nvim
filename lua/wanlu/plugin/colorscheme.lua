@@ -14,7 +14,7 @@ return {
     opts = {
       integrations = {
         dashboard = true,
-        gitsigns = true,
+        gitsign = true,
         noice = true,
         notify = true,
         which_key = true,
