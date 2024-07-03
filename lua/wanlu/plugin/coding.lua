@@ -30,5 +30,16 @@ return {
     "folke/ts-comments.nvim",
     event = "VeryLazy",
     opts = {},
-  }
+  },
+
+  {
+    "folke/which-key.nvim",
+    event = "VeryLazy",
+    opts = {
+      defaults = {
+        mode = { "n", "v" },
+        ["<leader>c"] = { name = "+code" },
+      },
+    },
+  },
 }
