@@ -45,10 +45,10 @@ vim.opt.virtualedit = "block"
 vim.opt.wildmode = "longest:full,full"
 vim.opt.winminwidth = 5
 vim.opt.wrap = false
+vim.opt.clipboard = vim.env.SSH_TTY and "" or "unnamedplus"
 vim.opt.fillchars = {
   foldopen = "",
   foldclose = "",
-  -- fold = "⸱",
   fold = " ",
   foldsep = " ",
   diff = "╱",
@@ -56,8 +56,5 @@ vim.opt.fillchars = {
 }
 if vim.fn.has("nvim-0.10") == 1 then
   vim.opt.smoothscroll = true
-end
-if not vim.env.SSH_TTY then
-  vim.opt.clipboard = "unnamedplus"
 end
 
