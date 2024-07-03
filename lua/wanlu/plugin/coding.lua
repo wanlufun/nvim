@@ -33,6 +33,12 @@ return {
   },
 
   {
+    "windwp/nvim-ts-autotag",
+    event = "LazyFile",
+    opts = {},
+  },
+
+  {
     "folke/which-key.nvim",
     event = "VeryLazy",
     opts = {
