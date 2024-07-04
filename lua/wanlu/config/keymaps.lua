@@ -80,3 +80,18 @@ map("n", "<leader><tab>]", "<cmd>tabnext<cr>", { desc = "Next Tab" })
 map("n", "<leader><tab>d", "<cmd>tabclose<cr>", { desc = "Close Tab" })
 map("n", "<leader><tab>[", "<cmd>tabprevious<cr>", { desc = "Previous Tab" })
 
+-- floating terminal
+local lazyterm = function() LuUtil.terminal(nil, { cwd = LuUtil.root() }) end
+map("n", "<leader>ft", lazyterm, { desc = "Terminal (Root Dir)" })
+map("n", "<leader>fT", function() LuUtil.terminal() end, { desc = "Terminal (cwd)" })
+map("n", "<c-/>", lazyterm, { desc = "Terminal (Root Dir)" })
+map("n", "<c-_>", lazyterm, { desc = "which_key_ignore" })
+
+-- Terminal Mappings
+map("t", "<esc><esc>", "<c-\\><c-n>", { desc = "Enter Normal Mode" })
+map("t", "<C-h>", "<cmd>wincmd h<cr>", { desc = "Go to Left Window" })
+map("t", "<C-j>", "<cmd>wincmd j<cr>", { desc = "Go to Lower Window" })
+map("t", "<C-k>", "<cmd>wincmd k<cr>", { desc = "Go to Upper Window" })
+map("t", "<C-l>", "<cmd>wincmd l<cr>", { desc = "Go to Right Window" })
+map("t", "<C-/>", "<cmd>close<cr>", { desc = "Hide Terminal" })
+map("t", "<c-_>", "<cmd>close<cr>", { desc = "which_key_ignore" })
