@@ -66,8 +66,8 @@ if vim.env.SSH_TTY then
       ['*'] = require('vim.ui.clipboard.osc52').copy('*'),
     },
     paste = {
-      ['+'] = require('vim.ui.clipboard.osc52').paste('+'),
-      ['*'] = require('vim.ui.clipboard.osc52').paste('*'),
+      ['+'] = LuUtil.option.paste,
+      ['*'] = LuUtil.option.paste,
     },
   }
 end
