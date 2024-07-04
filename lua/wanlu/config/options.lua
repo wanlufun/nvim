@@ -45,7 +45,6 @@ vim.opt.virtualedit = "block"
 vim.opt.wildmode = "longest:full,full"
 vim.opt.winminwidth = 5
 vim.opt.wrap = false
-vim.opt.clipboard = vim.env.SSH_TTY and "" or "unnamedplus"
 vim.opt.fillchars = {
   foldopen = "",
   foldclose = "",
@@ -56,5 +55,20 @@ vim.opt.fillchars = {
 }
 if vim.fn.has("nvim-0.10") == 1 then
   vim.opt.smoothscroll = true
+end
+
+vim.opt.clipboard = 'unnamedplus'
+if vim.env.SSH_TTY then
+  vim.g.clipboard = {
+    name = 'OSC 52',
+    copy = {
+      ['+'] = require('vim.ui.clipboard.osc52').copy('+'),
+      ['*'] = require('vim.ui.clipboard.osc52').copy('*'),
+    },
+    paste = {
+      ['+'] = require('vim.ui.clipboard.osc52').paste('+'),
+      ['*'] = require('vim.ui.clipboard.osc52').paste('*'),
+    },
+  }
 end
 
