@@ -17,7 +17,10 @@ return {
         gitsign = true,
         noice = true,
         notify = true,
+        neotree = true,
         which_key = true,
+        treesitter = true,
+        treesitter_context = true,
       },
     },
     config = function()
