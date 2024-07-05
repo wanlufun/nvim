@@ -1,3 +1,14 @@
+-- Neovim >= 0.90
+if vim.fn.has("nvim-0.9.0") == 0 then
+  vim.api.nvim_echo({
+    { "Some Plugins requires Neovim >= 0.9.0\n", "ErrorMsg" },
+    { "Press any key to exit", "MoreMsg" },
+  }, true, {})
+  vim.fn.getchar()
+  vim.cmd([[quit]])
+  return {}
+end
+
 -- Git >= 2.19.0 (for partial clones support)
 local git_version = vim.fn.system("git --version")
 local version_match = git_version:match("^git version ([^ ]+)")
